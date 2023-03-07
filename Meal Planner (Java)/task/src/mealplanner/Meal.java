@@ -5,20 +5,29 @@ import java.util.List;
 
 public class Meal {
 
+    long id;
     MealCategory category;
     String name;
     List<String> ingredients;
 
     public Meal(MealCategory category, String name){
+
         this.category = category;
         this.name = name;
         this.ingredients = new ArrayList<>();
     }
 
+    public Meal(MealCategory category, String name, List<String> ingredients){
+
+        this.category = category;
+        this.name = name;
+        this.ingredients = ingredients;
+    }
+
     public void printMeal(){
         System.out.printf("Category: %s%n", this.category.name());
         System.out.printf("Name: %s%n",this.name);
-        System.out.printf("Ingredients: %n");
+        System.out.printf("Ingredients:%n");
         for (String ingridient : ingredients){
             System.out.println(ingridient);
         }
@@ -47,4 +56,8 @@ public class Meal {
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
     }
+    public void setId(long íd){
+        this.id = id;
+    }
+
 }

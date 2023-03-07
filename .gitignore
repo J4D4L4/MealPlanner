@@ -1,0 +1,5 @@
+# Project exclude paths
+/.gradle/
+/Meal Planner (Java)/task/build/
+/Meal Planner (Java)/task/out/
+/Meal Planner (Java)/task/out/production/classes/

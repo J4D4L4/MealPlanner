@@ -1,14 +1,18 @@
 package mealplanner.commands;
 
+import mealplanner.DAO.MealDAO;
+
 import java.util.Scanner;
 
 public abstract class Command {
 
     String inputString;
+    MealDAO mealDAO;
 
 
     protected Command(String inputString) {
         this.inputString = inputString;
+        this.mealDAO = MealDAO.getInstance();
 
     }
 

@@ -17,3 +17,8 @@ Stage 2 Create a Menu:
 - If users want to show the meals when no meals have been added, print No meals saved. Add a meal first. If there are meals that can be dislayed, print them in the order they've been added, following the format from Stage 1;
 - Print Bye! and end the program once the exit command is entered;
 - If users fail to input a valid command, print the following message again: What would you like to do (add, show, exit)?
+Stage 3 Database storage:
+- Your program should connect to a database named meals_db;
+-  Create two tables in this database schema. Name the first one as meals with three columns: category (varchar), meal (varchar), and meal_id (integer). Name the second table ingredients; it must contain three columns: ingredient (varchar), ingredient_id (integer), and meal_id (integer). meal_id in both tables must match!
+-  Read all data in the tables, so their contents are available before a show operation is requested;
+-  When users add a new meal, store it in your database.

@@ -28,6 +28,7 @@ public class MealDAO implements DataAccessObject<Meal>{
     public static  MealDAO getInstance() throws SQLException {
         if(instance == null){
             instance = new MealDAO();
+
             meals = dbConnector.getAllMeals();
         }
         return instance;

@@ -133,6 +133,30 @@ public class DBConnector {
 
 
     }
+    private static void initalizeMeals() throws SQLException {
+        Connection connection = DBConnector.connect();
+        Statement statement = connection.createStatement();
+        //statement.executeUpdate("drop table if exists meals");
+        statement.executeUpdate("create table if not exists meals(category varchar(20)," +
+                "meal varchar(50)," +
+                "meal_id int," +
+                "PRIMARY KEY (meal_id))");
+    }
+    private static void initalizeIngredients() throws SQLException {
+        Connection connection = DBConnector.connect();
+        Statement statement = connection.createStatement();
+        //statement.executeUpdate("drop table if exists ingredients");
+        statement.executeUpdate("create table if not exists ingredients(" +
+                "ingredient  varchar(50)," +
+                "ingredient_id int," +
+                "meal_id int," +
+                " PRIMARY KEY (ingredient_id))");
+
+    }
+    public static void initalieDB() throws SQLException {
+        initalizeMeals();
+        initalizeIngredients();
+    }
 
 
 

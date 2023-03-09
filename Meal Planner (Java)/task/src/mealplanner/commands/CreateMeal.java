@@ -4,22 +4,23 @@ import mealplanner.Meal;
 import mealplanner.MealCategory;
 import mealplanner.RegExHelper;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CreateMeal extends Command{
-    public CreateMeal(String inputString) {
+    public CreateMeal(String inputString) throws SQLException {
         super(inputString);
     }
 
     @Override
-    public void execute() {
+    public void execute() throws SQLException {
         createMeal();
 
     }
 
-    public Meal createMeal(){
+    public Meal createMeal() throws SQLException {
         MealCategory category = getCategory();
         String name = getMealName();
         List<String> ingridients = getIngridients();

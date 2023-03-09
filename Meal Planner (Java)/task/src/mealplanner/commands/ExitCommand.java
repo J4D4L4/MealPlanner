@@ -1,9 +1,11 @@
 package mealplanner.commands;
 
+import java.sql.SQLException;
+
 public class ExitCommand extends Command{
 
 
-    ExitCommand(String inputCommand) {
+    ExitCommand(String inputCommand) throws SQLException {
         super(inputCommand);
     }
 

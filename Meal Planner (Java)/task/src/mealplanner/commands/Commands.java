@@ -1,10 +1,36 @@
 package mealplanner.commands;
 
+import java.sql.SQLException;
+
 public enum Commands {
 
-    CREATEMEAL("ADD", new CreateMeal("Add")),
-    SHOWMEAL("show", new ShowMeals("SHOW")),
-    EXIT("EXIT", new ExitCommand("EXIT"));
+    CREATEMEAL("ADD", new Object() {
+        CreateMeal evaluate() {
+            try {
+                return new CreateMeal("Add");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }.evaluate()),
+    SHOWMEAL("show", new Object() {
+        ShowMeals evaluate() {
+            try {
+                return new ShowMeals("SHOW");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }.evaluate()),
+    EXIT("EXIT", new Object() {
+        ExitCommand evaluate() {
+            try {
+                return new ExitCommand("EXIT");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }.evaluate());
 
     public String strCommand;
     public Command command;

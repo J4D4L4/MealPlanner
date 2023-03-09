@@ -2,6 +2,7 @@ package mealplanner.commands;
 
 import mealplanner.DAO.MealDAO;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public abstract class Command {
@@ -10,7 +11,7 @@ public abstract class Command {
     MealDAO mealDAO;
 
 
-    protected Command(String inputString) {
+    protected Command(String inputString) throws SQLException {
         this.inputString = inputString;
         this.mealDAO = MealDAO.getInstance();
 
@@ -23,7 +24,7 @@ public abstract class Command {
 
 
 
-    public abstract void execute() ;
+    public abstract void execute() throws SQLException;
 
 
 }

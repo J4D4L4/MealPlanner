@@ -2,10 +2,11 @@ package mealplanner.commands;
 
 import mealplanner.Meal;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class ShowMeals extends Command{
-    protected ShowMeals(String inputString) {
+    protected ShowMeals(String inputString) throws SQLException {
         super(inputString);
     }
 

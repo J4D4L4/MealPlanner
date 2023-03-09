@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Meal {
 
-    long id;
+    int id;
     MealCategory category;
     String name;
     List<String> ingredients;
@@ -58,6 +58,21 @@ public class Meal {
     }
     public void setId(long íd){
         this.id = id;
+    }
+
+    public static MealCategory getMealCategoryFromInput(String input){
+        switch (input.toUpperCase()) {
+            case "BREAKFAST":
+                return MealCategory.BREAKFAST;
+            case "LUNCH":
+                return MealCategory.LUNCH;
+            case "DINNER":
+                return MealCategory.DINNER;
+            default:
+                System.out.println("Wrong meal category! Choose from: breakfast, lunch, dinner.");
+                return MealCategory.ERROR;
+
+        }
     }
 
 }

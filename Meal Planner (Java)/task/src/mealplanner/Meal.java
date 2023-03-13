@@ -25,7 +25,7 @@ public class Meal {
     }
 
     public void printMeal(){
-        System.out.printf("Category: %s%n", this.category.name());
+
         System.out.printf("Name: %s%n",this.name);
         System.out.printf("Ingredients:%n");
         for (String ingridient : ingredients){

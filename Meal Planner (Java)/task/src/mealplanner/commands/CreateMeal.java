@@ -65,8 +65,9 @@ public class CreateMeal extends Command{
         String[] input = getUserInput().split(",");
         while(!checkInputs(input)){
             System.out.println("Wrong format. Use letters only!");
-            input = getUserInput().replace(",",", ").split(",");
-            input = Arrays.stream(input).map(inString -> inString.replace(" ", "")).collect(Collectors.toList()).toArray(new String[0]);
+
+            input = getUserInput().replace(" ","xyz").replace(",",", ").split(",");
+            input = Arrays.stream(input).map(inString -> inString.replace(" ", "").replace("xyz"," ")).collect(Collectors.toList()).toArray(new String[0]);
         }
         List<String> ingridientList = Arrays.stream(input).toList();
         return ingridientList;

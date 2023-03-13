@@ -31,16 +31,21 @@ public class ShowMeals extends Command{
             category = Meal.getMealCategoryFromInput(input);
 
         }
+
+
         printMealList(mealDAO.getWithCategory(category));
 
     }
 
     public void printMealList(List<Meal> meals){
         if(meals.size()>0) {
+            System.out.printf("Category: %s%n", meals.get(0).getCategory().name().toLowerCase());
             for (Meal meal : meals) {
+
                 meal.printMeal();
+                System.out.println("");
             }
         }
-        else System.out.println("No meals saved. Add a meal first.");
+        else System.out.println("No meals found.");
     }
 }

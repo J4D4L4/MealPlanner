@@ -2,12 +2,14 @@ package mealplanner.DAO;
 
 import mealplanner.DBConnector;
 import mealplanner.Meal;
+import mealplanner.MealCategory;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class MealDAO implements DataAccessObject<Meal>{
     static MealDAO instance;
@@ -61,5 +63,9 @@ public class MealDAO implements DataAccessObject<Meal>{
     @Override
     public void delete(Meal meal) {
 
+    }
+
+    public List<Meal> getWithCategory(MealCategory category){
+        return meals.stream().filter(meal -> meal.getCategory()==category).collect(Collectors.toList());
     }
 }
